@@ -181,6 +181,34 @@ GROUP BY
 ORDER BY
   3 DESC;
 
+-- Average time between customer registration and placing an order
+-- Calculate the number of days to purchase by taking the date difference
+-- Take the average of the number of days to purchase
+
+WITH days_to_purchase_cte AS (
+  SELECT
+    customers.id AS customer_id,
+    orders.id AS order_id,
+    customers.created_on,
+    orders.purchase_ts,
+    DATE_DIFF(orders.purchase_ts, customers.created_on, DAY) AS days_to_purchase
+  FROM
+    elist-390902.elist.customers AS customers
+  LEFT JOIN
+    elist-390902.elist.orders AS orders
+    ON customers.id = orders.customer_id
+  ORDER BY
+    1, 2, 3
+)
+
+SELECT
+  AVG(days_to_purchase)
+FROM
+  days_to_purchase_cte;
+
+
+
+
 
 
 
