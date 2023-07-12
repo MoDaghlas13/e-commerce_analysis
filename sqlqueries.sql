@@ -163,6 +163,23 @@ WHERE
 GROUP BY
   1;
 
+-- Average order value (AOV) and count of new customers by account creation channel in the first 2 months of 2022
+
+SELECT
+  customers.account_creation_method,
+  AVG(usd_price) AS aov,
+  COUNT(DISTINCT customers.id) AS num_customers
+FROM
+  elist-390902.elist.orders AS orders
+LEFT JOIN
+  elist-390902.elist.customers AS customers
+  ON orders.customer_id = customers.id
+WHERE
+  created_on BETWEEN '2022-01-01' AND '2022-02-28'
+GROUP BY
+  1
+ORDER BY
+  3 DESC;
 
 
 
