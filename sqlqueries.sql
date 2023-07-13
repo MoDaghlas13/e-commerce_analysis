@@ -206,9 +206,61 @@ SELECT
 FROM
   days_to_purchase_cte;
 
+-- Which marketing channels perform the best in each region? Does the top channel differ across regions?
+-- Find total sales, average order value (AOV), and total orders
+-- Grouped by region and marketing channel
+-- Tables: orders, customers, and geo_lookup
+
+SELECT
+  geo_lookup.region,
+  customers.marketing_channel,
+  SUM(orders.usd_price) AS total_sales,
+  AVG(orders.usd_price) AS aov,
+  COUNT(orders.id) AS total_orders
+FROM
+  elist-390902.elist.orders AS orders
+LEFT JOIN
+  elist-390902.elist.customers AS customers
+  ON orders.customer_id = customers.id
+LEFT JOIN
+  elist-390902.elist.geo_lookup AS geo_lookup
+  ON customers.country_code = geo_lookup.country
+GROUP BY
+  1, 2
+ORDER BY
+  1, 3 DESC;
 
 
+-- Find total sales, average order value (AOV), and total orders
+-- Grouped by region and marketing channel
+-- Tables: orders, customers, and geo_lookup
 
+with region_orders as(
+  SELECT
+  geo_lookup.region,
+  customers.marketing_channel,
+  SUM(orders.usd_price) AS total_sales,
+  AVG(orders.usd_price) AS aov,
+  COUNT(orders.id) AS total_orders
+FROM
+  elist-390902.elist.orders AS orders
+LEFT JOIN
+  elist-390902.elist.customers AS customers
+  ON orders.customer_id = customers.id
+LEFT JOIN
+  elist-390902.elist.geo_lookup AS geo_lookup
+  ON customers.country_code = geo_lookup.country
+GROUP BY
+  1, 2
+ORDER BY
+  1, 3 DESC)
+
+SELECT *,
+  ROW_NUMBER() OVER (PARTITION BY region ORDER BY total_orders DESC) AS ranking
+FROM 
+  region_orders
+ORDER BY 
+  6 ASC;
 
 
 
