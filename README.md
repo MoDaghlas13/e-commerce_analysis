@@ -4,13 +4,24 @@ This project was carried out on a dataset belonging to a fictitious e-commerce c
 
 # Summary of insights
 
-**Yearly Sales Trends**: Between 2019 and 2022, yearly sales averaged at **$6m** with the **highest total sales** being **2020** at **$8.6m**. **2020** also saw the highest **aov** of **$298** and greatest year-on-year growth rate of **165%**.
+**Yearly Sales Trends**: Between 2019 and 2022, average number of sales per year was **23.2K**, with average yearly sale **revenue** of **$6M** and **average order value of $253. 2021 saw the highest number of sales (30.7K), but the most expensive sales were observed in 2020 (AOV $298).
 
-![image](https://github.com/MoDaghlas13/e-commerce_analysis/assets/98186599/79b34766-6717-4b7d-bca6-ca408b346c72)
+**Growth rates**: In 2020, sales surged, doubling total revenue from 2019 with a 31% higher AOV. However, in 2021, despite positive sales growth, total revenue declined due to 15% less expensive items being favored on average.
 
-**Seasonality**: Spring experiences the highest sales and orders, while winter months (excluding November) have the lowest sales. Implementing sales promotions during the winter can help increase total orders and sales.
+**Seasonality**: During the winter months (November and December), sales are typically higher due to holiday gift buying and seasonal promotions. Notably, in May 2020, the business achieved impressive milestones with the highest recorded sales of $883,406, the peak average order value (AOV) of £320 in October 2020, and a peak of 3065 orders in May 2020. These stats highlight key moments of success and can serve as valuable benchmarks for future growth and performance evaluation. Understanding seasonal trends and identifying peak periods can help the business capitalize on opportunities and optimize sales and customer satisfaction.
 
-![image](https://github.com/MoDaghlas13/e-commerce_analysis/assets/98186599/e8282f6c-953c-48d7-a33e-e38d0a8d439b)
+**Products**: Across all 4 years, Apple Airpods Headphones have been the best-selling product, with an average of 10K orders a year. Between 2019 and 2020, 85% of sales came from the top 3 products - the Apple headphones, the gaming monitor, and the Macbook Air Laptop.
+
+**Loyalty Program**: During 2019 and 2020, loyalty program customers made fewer and less expensive purchases than non-loyalty customers. However, in 2021-2022, loyalty customers not only made more purchases but also spent about $30 more on average. Considering this recent trend, we recommend continuing the loyalty program.
+
+
+## Technical Analysis
+
+Sample of pivot table used for seasonality insights is below. More detailed analysis is contained in the Excel workbook in this repository.
+
+![image](https://github.com/MoDaghlas13/e-commerce_analysis/assets/98186599/580bac20-a8fb-4712-8aea-9154fa88287a)
+
+
 
 
 
