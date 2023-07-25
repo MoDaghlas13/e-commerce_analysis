@@ -8,7 +8,7 @@ This project was carried out on a dataset belonging to a fictitious e-commerce c
 
 **Growth rates**: In 2020, sales surged, doubling total revenue from 2019 with a 31% higher AOV. However, in 2021, despite positive sales growth, total revenue declined due to 15% less expensive items being favored on average.
 
-**Seasonality**: During winter (November and December), sales are typically higher due to holiday gift buying and seasonal promotions. In May 2020, the business achieved impressive milestones with the highest recorded sales of $883,406, the peak average order value (AOV) of £320 in October 2020, and 3065 orders in the same month. These stats serve as valuable benchmarks for future growth and performance evaluation. Understanding seasonal trends can help capitalize on opportunities and optimize sales and customer satisfaction.
+**Seasonality**: During winter (November and December), sales are typically higher due to holiday gift buying and seasonal promotions. In May 2020, the business achieved impressive milestones with the highest recorded sales of $883,406, the peak average order value (AOV) of £320 in October 2020, and 3065 orders in the same month. These stats serve as valuable benchmarks for future growth and performance evaluation. 
 
 **Products**: Across all 4 years, Apple Airpods Headphones have been the best-selling product, with an average of 10K orders a year. Between 2019 and 2020, 85% of sales came from the top 3 products - the Apple headphones, the gaming monitor, and the Macbook Air Laptop.
 
