@@ -163,7 +163,92 @@ WHERE
 GROUP BY
   1;
 
+--calculate days to purchase by taking date difference
+--take the average of the number of days to purchase
 
+with days_to_purchase_cte as (
+    select customers.id as customer_id, 
+	    orders.id as order_id,
+	    customers.created_on,
+	    orders.purchase_ts, 
+	    date_diff(orders.purchase_ts, customers.created_on,day) as days_to_purchase
+		from `elist-390902.elist.customers` customers
+		left join `elist-390902.elist.orders` orders
+		    on customers.id = orders.customer_id
+		order by 1,2,3)
+
+select avg(days_to_purchase) 
+from days_to_purchase_cte;
+
+--total number of orders and total sales by region and registration channel
+--channels ranked by total sales, and order the dataset by this ranking to surface the top channels per region first
+
+with region_orders as (
+    select geo_lookup.region, 
+    customers.marketing_channel,
+    count(distinct orders.id) as num_orders, 
+    sum(orders.usd_price) as total_sales,
+    avg(orders.usd_price) as aov
+from `elist-390902.elist.orders` orders
+left join `elist-390902.elist.customers` customers
+    on orders.customer_id = customers.id
+left join elist.geo_lookup
+    on customers.country_code = geo_lookup.country
+group by 1,2
+order by 1,2)
+
+select *, 
+	row_number() over (partition by region order by num_orders desc) as ranking
+from region_orders
+order by 6 asc
+
+--customers with over 4 purchases first
+  
+with over_4_purchases as (
+  select customer_id, 
+		count(id)
+  from `elist-390902.elist.orders` orders
+  group by 1
+  having (count(id)) >= 4
+)
+
+-- rank customer orders by most recent first
+-- select the most recent orders using a qualify 
+-- choose only customers who had more than 4 purchases with inner join
+  
+select orders.customer_id, 
+  orders.id, 
+  orders.product_name, 
+  orders.purchase_ts,
+  row_number() over (partition by orders.customer_id order by orders.purchase_ts desc) as order_ranking
+from `elist-390902.elist.orders` orders
+inner join over_4_purchases 
+  on over_4_purchases.customer_id = orders.customer_id
+qualify row_number() over (partition by customer_id order by purchase_ts desc) = 1
+
+--brand categories and filter to 2020
+--count the number of refunds per month
+  
+with brand_refunds as (
+	select 
+	  case when lower(product_name) like '%apple%' or lower(product_name) like '%macbook%' then 'Apple'
+	    when lower(product_name) like '%thinkpad%' then 'ThinkPad'
+	    when lower(product_name) like '%samsung%' then 'Samsung'
+	    when lower(product_name) like '%bose%' then 'Bose'
+	    else 'Unknown'
+	  end as brand,
+	  date_trunc(refund_ts, month) as refund_month,
+	  count(refund_ts) as refunds
+	from `elist-390902.elist.orders` orders
+	left join `elist-390902.elist.order_status` order_status
+		on orders.id = order_status.order_id
+	where extract(year from refund_ts) = 2020
+	group by 1,2)
+
+--select the month per brand based on the highest number of refunds
+select * 
+from brand_refunds
+qualify row_number() over (partition by brand order by refunds desc) = 1
 
 
 
