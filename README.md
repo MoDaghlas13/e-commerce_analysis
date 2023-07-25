@@ -17,7 +17,7 @@ This project was carried out on a dataset belonging to a fictitious e-commerce c
 
 ## Technical Analysis
 
-Sample of pivot table used for seasonality insights is below. More detailed analysis can be found in the xlsx file [here](https://github.com/MoDaghlas13/e-commerce_analysis/blob/main/e-list%20analysis.xlsx)
+Sample of pivot table used for seasonality insights is below. More detailed analysis can be found in the xlsx file [here](https://github.com/MoDaghlas13/e-commerce_analysis/blob/main/e-list%20analysis.xlsx) and the sql file [here](https://github.com/MoDaghlas13/e-commerce_analysis/blob/main/sqlqueries.sql)
 
 ![image](https://github.com/MoDaghlas13/e-commerce_analysis/assets/98186599/580bac20-a8fb-4712-8aea-9154fa88287a)
 
