@@ -1,8 +1,8 @@
-# E-commerce_analysis
+## E-commerce Analysis
 
 This project was carried out on a dataset belonging to a fictitious e-commerce company that specialises in electronic products. The goal of this analysis was to observe sales trends, growth rates, marketing channels distribution, regional performance and the efficacy of the loyalty program. This was carried out in order to give recommendations on the continuation of the loyalty program.
 
-# Summary of insights
+## Summary of insights
 
 **Yearly Sales Trends**: Between 2019 and 2022, average number of sales per year was 23.2K, with average yearly sale revenue of $6M and average order value of $253. 2021 saw the highest number of sales (30.7K), but the most expensive sales were observed in 2020 (AOV $298).
 
