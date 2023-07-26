@@ -26,7 +26,8 @@ Sample of pivot table used for seasonality insights is below. More detailed anal
 
 Link to public dashboard can be found [here](https://public.tableau.com/app/profile/mo.daghlas/viz/ElistDashboard_16888798576110/Dashboard1)
 
-![image](https://github.com/MoDaghlas13/e-commerce_analysis/assets/98186599/7606acc1-d660-4716-830a-ab37db762478)
+![image](https://github.com/MoDaghlas13/e-commerce_analysis/assets/98186599/a3998832-1145-4c1c-9011-6c1f90ce0c78)
+
 
 
 
